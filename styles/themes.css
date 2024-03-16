@@ -11,6 +11,8 @@
   --font-weight-text: 400;
   --font-weight-title: 700;
   --bg-color: #fff; 
+  --contour-heart: #000;
+  --watermark: #fff;
   
   --background-image: repeating-linear-gradient(#d3d3d3,#d3d3d3 2px, transparent 2px, transparent 4px), 
                       repeating-linear-gradient(90deg,#d3d3d3,#d3d3d3 2px, transparent 2px, transparent 4px),
@@ -20,9 +22,12 @@
 :root.theme-dark {  
   --accent-color: #00CC14;
   --contour-color: #00CC14;
-  --font-weight-text: 400;
+  --font-weight-text: 465;
   --font-weight-title: 785;
-  --bg-color: #000; 
+  --bg-color: #000;
+  --contour-heart: #00CC14;
+  --core-heart: #ff0000;
+  --watermark: #00CC14; 
   
   --background-image: repeating-linear-gradient(#000,#000 2px, transparent 2px, transparent 4px), 
                       repeating-linear-gradient(90deg,#000,#000 2px, transparent 2px, transparent 4px),
@@ -34,12 +39,17 @@
   :root {
     --accent-color: #00CC14;
     --contour-color: #00CC14;
-    --font-weight-text: 400;
+    --font-weight-text: 465;
     --font-weight-title: 785;
-    --bg-color: #000;     
+    --bg-color: #000; 
+    --contour-heart: #00CC14;
+    --core-heart: #ff0000;
+    --watermark: #00CC14;   
 
     --background-image: repeating-linear-gradient(#000,#000 2px, transparent 2px, transparent 4px), 
                         repeating-linear-gradient(90deg,#000,#000 2px, transparent 2px, transparent 4px),
                         linear-gradient(#007f0c, #004306);
   }
 }
+
+

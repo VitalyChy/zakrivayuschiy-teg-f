@@ -1,10 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+
   <style>
-    @media (prefers-color-scheme: dark) {
-      .fill{
-        fill: #00CC14;
-      } 
+    path {
+      fill:#000
     }
+  @media (prefers-color-scheme: dark ) {
+      path {
+        fill:#00cc14
+      }
+    } 
   </style>
-<path fill="#000" class="fill" fill-rule="evenodd" d="M0 256V0h256v256H0Zm192-96h-32v-32h-32V96H96v32H64v32H32V32h192v96h-32v32Zm-32 32h32v-32h32v64h-64v-32Zm0 0h-32v32H32v-32h32v-32h32v-32h32v32h32v32Zm32-128h-32v32h32V64Z"/>
+
+<path fill="#000" d="M128 128h32v32h-32v-32ZM96 128V96h32v32H96ZM96 128v32H64v-32h32ZM192 64h-32v32h32V64Z"/>
+<path fill="#000" fill-rule="evenodd" d="M0 0v256h256V0H0Zm224 224h-64v-32h32v-32h32v64Zm-64-64h32v-32h32V32H32v128h32v32H32v32h96v-32h32v-32Z" clip-rule="evenodd"/>
 </svg>

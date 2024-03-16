@@ -19,46 +19,53 @@
 /* 3. Блок Footer  */
 /* 4. Медиазапросы */
 
-.page {
+.page {  
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
   padding-block-start: 100px;
   color: var(--accent-color, #000);
-  font-family: var(--font-Int), serif;
-  font-size: var(--font-size);
+  font-family: var(--font-Int), sans-serif;
+  font-size: var(--font-size-18px);
   background-color: var(--bg-color);
   background-image: var(--background-image);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  inline-size: var(--width-size);
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-variation-settings: 'wght' var(--font-weight-title), var(--font-weight-text);
+  
 }
 
 /* ########################################## /*
 /* 1. Блок Header Начало */
 /* ########################################## */
 
-.header {  
-  display: flex;
-  flex-direction: column;
+.decorative__frame {  
   border: 2px solid var(--contour-color);
-  padding-inline: 14px;
-  font-family: var(--font-PS2P);
-  background-color: #fff;
-  color: var(--accent-color);
+  background-color: var(--bg-color);  
 }
 
-.header__title {
-  padding-block-start: 120px;
+.header {  
+  display: flex;
+  flex-direction: column; 
+  padding-block-start: clamp(7.5rem, 7.148rem + 1.502vw, 8.5rem);    
+  color: var(--accent-color);
+  font-family: var(--font-PS2P), sans-serif;  
+  text-align: center;   
+}
+
+.header__title {  
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);  
   text-align: center;
 }
 
-.header__paragraph {
+.header__subtitle {
   padding-block-start: 20px;
-  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
-  text-align: center;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);  
   text-transform: uppercase;
 }
 
@@ -68,22 +75,317 @@
   flex-wrap: wrap;
   align-items: flex-start;
   align-content: center;  
-  gap: 14px;
-}
-
-.header__theme-menu {
-  padding-block: 25px;  
+  gap: 8px;
+  margin-inline-start: 20px;
+  padding-block: 24px;
+  
 }
 
 .theme-menu__button {
+  position: relative;
   border: none;
-  font-size: 14px;
+  outline: none;    
+  color: var(--accent-color);
+  font-size: var(--font-size-14px);
   text-transform: uppercase;
   background-color: transparent;
-  cursor: pointer;
+  cursor: pointer;  
+}
 
+.theme-menu__button:disabled::before {
+  content: '▶';
+  position: absolute;
+  margin-inline-start: -18px;
+  animation: cursor 0.5s infinite ease-in-out alternate;  /* Пвтор "Бесконеный",  "медленно начинается и заканчивается, а в середине ускоряется", Четный/Нечётный повтор анимации */
+  animation-name: cursor; /* Имя анимациии */
+}
+
+.theme-menu__button:disabled {
+  opacity: 60%;
+  pointer-events: none ;
+}
+
+.theme-menu__button::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  display: block;
+  border-block-end: 2px solid var(--accent-color);
+  background-color: var(--accent-color);
+  transition: transform 0.3s ease;
+  transform: scale(0, 1);
+  transform-origin: left;
+  inset-inline-start: 6px;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scale(1, 1);
+}
+
+.theme-menu__button:hover {
+  opacity: 60%;
 }
 
 /* ########################################## */
 /* Блок Header Конец */
 /* ########################################## */
+
+/* ########################################## /*
+/* 2. Блок Main Начало */
+/* ########################################## */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto; /* Выравнивание по центру */  
+  padding-block-start: 50px;  
+}
+
+.card {
+  margin-block-start: 50px;
+}
+
+.card__section { 
+  display: flex;
+  flex-direction: column;  
+}
+
+.section {
+  border-top: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+  block-size: clamp(23.438rem, 10.586rem + 54.836vw, 59.938rem);
+}
+
+.card__title {  
+  padding: 4px 10px 6px;
+  font-size: var(--font-size-18px);
+  font-variation-settings: 'wght' var(--font-weight-title);
+}
+
+.card__picture-image {
+  border-bottom: 2px solid var(--accent-color);   
+  object-fit: cover;
+  inline-size: 100%;
+  block-size: 100%;
+      
+}
+
+/* #### Фильтры #### */
+
+.brightness {
+  filter: brightness(50%);
+}
+
+.contrast {
+  filter: contrast(20%);
+}
+
+.blur {
+  filter: blur(0.5rem) opacity(0.8);
+}
+
+.grayscale {
+  filter: grayscale(0.8);
+}
+
+.saturate {
+  filter: saturate(170%);
+}
+
+.hue-rotate {
+  filter: hue-rotate(-90deg);
+}
+
+.sepia {
+  filter: sepia(80%);
+}
+
+.invert {
+  filter: invert(0.6);
+}
+
+.watermark {
+  content: '';
+  position: absolute;
+  padding-block-start: 22px;
+  opacity: 50%;
+  font-family: var(--font-PS2P);  
+  font-size: 14px;
+  line-height: 14px;
+  text-shadow:-1px 0 var(--watermark), 0 1px var(--watermark), 1px 0 var(--watermark), 0 -1px var(--watermark);
+  inset-inline-end: 13px;  
+  font-variation-settings: 'wght' var(--font-weight-text);
+  mix-blend-mode: hard-light;   
+}
+
+@supports((text-stroke: 1px var(--watermark)) or (-webkit-text-stroke: 1px var(--watermark))) {
+  .watermark {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--watermark);
+    text-stroke: 1px var(--watermark);
+  }
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;  
+  padding: 25px 25px 25px 25px; 
+  font-variation-settings: 'wght' var(--font-weight-text);   
+}
+
+.button_like {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 7px;
+  margin-inline-end: 25px;
+  margin-block-end: 25px;
+}
+
+.card__like-button {
+  min-width: 130px;
+  min-height: 38px;    
+  border: 2px solid var(--accent-color);
+  font-family: var(--font-PS2P), sans-serif;
+  font-size: var(--font-size-14px);
+  background-color: transparent;
+}
+
+.card__icon-button {   
+  border: none;
+  padding-block-start: 5px;
+  background-color: transparent;
+}
+
+/* ########################################## */
+/* Блок Main Конец */
+/* ########################################## */
+
+/* ########################################## */
+/* 3. Блок Footer Начало */
+/* ########################################## */
+
+.save__button {  
+  display: flex;  
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  gap: 8px;
+  margin: clamp(3.125rem, 3.125rem + 0vw, 3.125rem) clamp(2.156rem, -1.068rem + 13.757vw, 11.313rem) clamp(6.25rem, 6.184rem + 0.282vw, 6.438rem) clamp(2.156rem, -1.046rem + 13.662vw, 11.25rem);
+  border: 2px solid var(--contour-color);
+  color: var(--accent-color);
+  background-color: var(--bg-color);
+  cursor: pointer;
+  inline-size: clamp(19.25rem, 18.656rem + 2.536vw, 20.938rem);
+  block-size: min(84px);     
+}
+
+.button__text {   
+  font-family: var(--font-PS2P);
+  font-size: var(--font-size-14px);
+}
+
+.save__floppy {
+  color: var(--accent-color);  
+}
+
+/* #### Модельное окно #### */
+
+.dialog-window[open] {
+  display: flex;  
+  align-items: center;   
+  border: 2px solid var(--contour-color);
+  color: var(--accent-color);
+  font-family: var(--font-PS2P), sans-serif;
+  font-size: var(--font-size-14px);
+  background-color: var(--bg-color);
+  block-size: 191px;
+  inline-size: clamp(21.313rem, 21.049rem + 1.127vw, 22.063rem); 
+}
+
+.dialog-window::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.dialog-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  border: none;
+  padding-inline-start: 25px;
+}
+
+.dialog-floppy {  
+  flex-shrink: 0;
+  max-width: 39px;
+  max-height: 39px;
+  color: var(--accent-color);
+  inline-size: 100%;
+  block-size: 100%; 
+}
+
+.dialog__text {
+  font-family: var(--font-PS2P), sans-serif;
+  font-size: var(--font-size-14px);
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+.window-close {  
+  border: 2px solid var(--contour-color);
+  padding-inline: 42px;
+  text-transform: uppercase;
+  background-color: var(--bg-color);
+  cursor: pointer;
+  block-size: 38px;
+  inline-size: clamp(16.063rem, 15.271rem + 3.38vw, 18.313rem);
+}
+
+/* ########################################## */
+/* Блок Footer Конец */
+/* ########################################## */
+
+/* ########################################## */
+/* 4. Медиазапросы */
+/* ########################################## */
+
+@media (width >= 1440px) {
+
+ .section {
+  block-size: 700px;  
+ }
+
+ .watermark {
+  inset-inline-end: 395px;
+  padding-block-start: 25px;
+ }
+
+ .save__button {
+  flex-direction: row;
+  inline-size: clamp(19.25rem, 18.546rem + 3.005vw, 21.25rem);
+  block-size: max(55px);
+ }
+
+ .save__floppy {
+  max-width: 21px;
+  max-height: 21px;
+  color: var(--accent-color);
+  inline-size: 100%;
+  block-size: 100%;  
+ }
+}
+
