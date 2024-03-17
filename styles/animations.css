@@ -13,13 +13,118 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
 
+.sparks {
+  opacity: 0;
+}
+
+/* #### :hover #### */
+
+.like-icon .core {
+  fill: transparent;
+  transition: fill 0.3s linear; /* linear — меняется с одинаковой скоростью */
+  transition-delay: 0.03s; /* Задержка */
+}
+
+.like-icon .main-body {
+  fill: transparent;
+  transition: fill 0.3s linear;  
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--accent-color);
+  transition: fill 0.3 linear;
+  transition-delay: 0.6s;
+}
+
+.like-icon:hover .core {
+  fill: var(--accent-color);
+  transition-delay: 0s;
+  cursor: pointer;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--accent-color);
+  transition-delay: 0.05s;
+  cursor: pointer;
+}
+
+/* #### :active #### */
+
+.like-icon:active .core {
+  fill: var(--heart-sparks-color);
+  transition-delay: 0s;
+  cursor: pointer;
+}
+
+.like-icon:active .main-body {
+  fill: var(--heart-sparks-color);
+  transition-delay: 0.05s;
+  cursor: pointer;
+}
+
+/* #### Клик по иконке #### */
+
+.like-icon.is-liked .core {
+  fill: var(--heart-sparks-color);
+  transition-delay: 0s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-sparks-color);
+  transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-sparks-color);
+  transition-delay: 0.06s;
+}
+
+.like-icon .main-body {
+  transition: fill 0s linear;
+  transition-delay: 0s;
+}
+
+.like-icon .core {
+  transition: fill 0s linear;
+  transition-delay: 0s;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s ease-in 0.3s 1 alternate;
+}
+
+.like-icon.is-liked .heart {
+ transform-origin: center;
+ animation: heart 0.3s ease-in 0.1s 1 alternate;
+}
+
 @keyframes cursor {
 
-  from {
+  0% {
     left: 0;
   }
 
-  to {
+  100% {
     left: 4px;
+  }
+}
+
+@keyframes heart {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.5);
+  }
+} 
+
+@keyframes sparks {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
