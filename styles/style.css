@@ -53,7 +53,8 @@
 .header {  
   display: flex;
   flex-direction: column; 
-  padding-block-start: clamp(7.5rem, 7.148rem + 1.502vw, 8.5rem);    
+  padding-block-start: clamp(7.5rem, 7.148rem + 1.502vw, 8.5rem);
+  padding-block-end: 20px;    
   color: var(--accent-color);
   font-family: var(--font-PS2P), sans-serif, Arial, Helvetica; 
   text-align: center; 
@@ -80,66 +81,76 @@
 .theme-menu__list {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  align-content: center;  
   gap: 8px;
-  margin-inline-start: 20px;
-  padding-block: 24px;
-  -webkit-margin-start: 20px;  
+  padding-block-start: 24px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.header__theme-menu {
+  display: flex;
+  justify-content: center;
 }
 
 .theme-menu__button {
-  position: relative;
   border: none;
-  outline: none;    
-  color: var(--accent-color);
-  font-size: var(--font-size-14px);
   text-transform: uppercase;
   background-color: transparent;
-  cursor: pointer;  
+  transition: opacity 1s;
 }
 
-.theme-menu__button:disabled::before {
-  content: '▶';
-  position: absolute;  
-  margin-left: -18px;  
-  -webkit-animation: cursor 0.5s infinite ease-in-out alternate;
-  animation: cursor 0.5s infinite ease-in-out alternate;  /* Повтор "Бесконеный",  "медленно начинается и заканчивается, а в середине ускоряется", Четный/Нечётный повтор анимации */
-  -webkit-animation-name: cursor;
-  animation-name: cursor; /* Имя анимациии */  
+.theme-menu__button::before {
+  content: '';
+  padding: 0;
 }
 
 .theme-menu__button:disabled {
-  opacity: 60%;
-  pointer-events: none ;
+  opacity: 0.6;
+  pointer-events: none;
+} 
+
+.theme-menu__button:disabled::before {
+  content: '▶'; 
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  -webkit-animation: cursor 0.5s infinite ease-in-out alternate;
+  animation: cursor 0.5s infinite ease-in-out alternate;  /* Повтор "Бесконеный",  "медленно начинается и заканчивается, а в середине ускоряется", Четный/Нечётный повтор анимации */
+  -webkit-animation-name: cursor;
+  animation-name: cursor; /* Имя анимациии */
+} 
+
+.theme-menu__item {
+  position: relative;
+  padding-inline-start: 21px;
 }
 
-.theme-menu__button::after {
-  content: "";
-  position: absolute;
-  right: 8px;
-  display: block;
-  border-block-end: 2px solid var(--accent-color);
-  background-color: var(--accent-color);
-  transition: transform 0.3s ease;
-  transform: scale(0, 1);
-  transform-origin: left;
-  -webkit-border-after: 2px solid var(--accent-color);
-  inset-inline-start: 6px;
+.theme-menu__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 .theme-menu__button:focus {
   outline: none;
+}
+
+.theme-menu__button:focus-visible {
   opacity: 0.6;
 }
 
-.theme-menu__button:focus-visible::after {
-  transform: scale(1, 1);
+.theme-menu__button::after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 2px;
+  margin-top: 2px;
+  background-color: var(--accent-color);
+  transition: width 300ms, background-color 1s;
 }
 
-.theme-menu__button:hover {
-  opacity: 60%;
+.theme-menu__button:focus-visible::after {
+  width: 100%;
+  background-color: var(--accent-color);
 }
 
 /* ########################################## */
@@ -158,109 +169,76 @@
   -webkit-padding-before: 50px;  
 }
 
-.card {
+.section {
   margin-block-start: 50px;
   -webkit-margin-before: 50px;
+  display: block;
+  margin-inline: auto;  
 }
 
-.card__section { 
+/* .card {
   display: flex;
-  flex-direction: column;  
-}
-
-.section {
-  position: relative;
-  border-top: 2px solid var(--accent-color);
-  border-bottom: 2px solid var(--accent-color);
-  block-size: clamp(23.438rem, 10.586rem + 54.836vw, 59.938rem);
-}
+  flex-direction: column;
+  gap: 50px;
+} */
 
 .card__title {  
   padding: 4px 10px 6px;
   font-size: var(--font-size-18px);
+  line-height: 21.78px;
   font-variation-settings: 'wght' var(--font-weight-title);
 }
 
-.card__picture-image {
-  border-bottom: 2px solid var(--accent-color);   
+.card__container { 
+  display: flex;
+  flex-direction: column;  
+}
+
+.img__container {
+  position: relative;
+  border-top: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+  block-size: 371px;
+}
+
+.card__picture-image {     
   -o-object-fit: cover;   
   object-fit: cover;
   inline-size: 100%;
-  block-size: 100%;
-      
+  block-size: 100%;      
 }
 
-/* #### Фильтры #### */
-
-.brightness {
-  -webkit-filter: brightness(50%) invert(0.9);
-  filter: brightness(50%) invert(0.9);
-}
-
-.contrast {
-  -webkit-filter: contrast(20%);
-  filter: contrast(20%);
-}
-
-.blur {
-  -webkit-filter: blur(0.5rem) opacity(0.8);
-  filter: blur(0.5rem) opacity(0.8);
-}
-
-.grayscale {
-  -webkit-filter: grayscale(0.8);
-  filter: grayscale(0.8);
-}
-
-.saturate {
-  -webkit-filter: saturate(170%);
-  filter: saturate(170%);
-}
-
-.hue-rotate {
-  -webkit-filter: hue-rotate(-90deg);
-  filter: hue-rotate(-90deg);
-}
-
-.sepia {
-  -webkit-filter: sepia(80%);
-  filter: sepia(80%);
-}
-
-.invert {
-  -webkit-filter: invert(0.6);
-  filter: invert(0.6);
-}
-
-/* #### ^^^^Фильтры^^^^ #### */
-
-.watermark {  
+.label {  
   position: absolute;
   top: 22px;
   opacity: 50%;
+  color: var(--accent-color);
   font-family: var(--font-PS2P), sans-serif, Arial, Helvetica; 
   font-size: 14px;
   line-height: 14px;
-  text-shadow:-1px 0 var(--watermark), 0 1px var(--watermark), 1px 0 var(--watermark), 0 -1px var(--watermark);  
+  text-shadow:-1px 0 var(--label), 0 1px var(--label), 1px 0 var(--label), 0 -1px var(--label);  
   inset-inline-end: min(13px);  
   font-variation-settings: 'wght' var(--font-weight-text);
   mix-blend-mode: hard-light;   
 }
 
-@supports((text-stroke: 1px var(--watermark)) or (-webkit-text-stroke: 1px var(--watermark))) {
+@supports((text-stroke: 1px var(--label)) or (-webkit-text-stroke: 1px var(--label))) {
   .watermark {
     text-shadow: none;
-    -webkit-text-stroke: 1px var(--watermark);
-    text-stroke: 1px var(--watermark);
+    -webkit-text-stroke: 1px var(--label);
+    text-stroke: 1px var(--label);
   }
 }
 
-.card__content {
+.card__text {
+  border-top: 2px solid var(--accent-color);
   display: flex;
   flex-direction: column;
   gap: 27px;  
   padding: 25px 25px 0 25px; 
-  font-variation-settings: 'wght' var(--font-weight-text);   
+  font-size: var(--font-size-18px);
+  line-height: 21px; 
+  font-variation-settings: 'wght' var(--font-weight-text);     
 }
 
 .button_like {
@@ -469,8 +447,7 @@
 
  .save__floppy {
   max-width: 21px;
-  max-height: 21px;
-  color: var(--accent-color);
+  max-height: 21px;  
   inline-size: 100%;
   block-size: 100%;  
  }

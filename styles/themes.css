@@ -12,7 +12,7 @@
   --font-weight-title: 700;
   --bg-color: #fff; 
   --contour-heart: #000;
-  --watermark: #fff;
+  --label: #fff;
   --bt-color: #fff;
   --heart-contour-color: #000;
   --heart-sparks-color: #ff0000;
@@ -31,7 +31,7 @@
   --bg-color: #000;
   --contour-heart: #00CC14;
   --core-heart: #ff0000;
-  --watermark: #FFF;
+  --label: #000;
   --bt-color: #00CC14;
   --heart-contour-color: #00CC14;
   --heart-sparks-color: #ff0000;
@@ -52,7 +52,7 @@
     --bg-color: #000; 
     --contour-heart: #00CC14;
     --core-heart: #ff0000;
-    --watermark: #FFF;
+    --label: #000;
     --bt-color: #00CC14;
     --heart-contour-color: #00CC14;
     --heart-sparks-color: #ff0000;
