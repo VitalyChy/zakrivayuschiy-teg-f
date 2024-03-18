@@ -15,7 +15,7 @@
   --watermark: #fff;
   --bt-color: #fff;
   --heart-contour-color: #000;
-  --heart-sparks-color: red;
+  --heart-sparks-color: #ff0000;
   --heart-body-color: #000;
   
   --background-image: repeating-linear-gradient(#d3d3d3,#d3d3d3 2px, transparent 2px, transparent 4px), 
@@ -31,10 +31,10 @@
   --bg-color: #000;
   --contour-heart: #00CC14;
   --core-heart: #ff0000;
-  --watermark: #00CC14;
+  --watermark: #FFF;
   --bt-color: #00CC14;
   --heart-contour-color: #00CC14;
-  --heart-sparks-color: red;
+  --heart-sparks-color: #ff0000;
   --heart-body-color: #00CC14; 
   
   --background-image: repeating-linear-gradient(#000,#000 2px, transparent 2px, transparent 4px), 
@@ -52,10 +52,10 @@
     --bg-color: #000; 
     --contour-heart: #00CC14;
     --core-heart: #ff0000;
-    --watermark: #00CC14;
+    --watermark: #FFF;
     --bt-color: #00CC14;
     --heart-contour-color: #00CC14;
-    --heart-sparks-color: red;
+    --heart-sparks-color: #ff0000;
     --heart-body-color: #00CC14;     
 
     --background-image: repeating-linear-gradient(#000,#000 2px, transparent 2px, transparent 4px), 

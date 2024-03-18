@@ -25,7 +25,7 @@
   margin: 0 auto;
   padding-block-start: 100px;
   color: var(--accent-color, #000);
-  font-family: var(--font-Int), sans-serif;
+  font-family: var(--font-Int), sans-serif, Arial, Helvetica;
   font-size: var(--font-size-18px);
   background-color: var(--bg-color);
   background-image: var(--background-image);
@@ -55,14 +55,19 @@
   flex-direction: column; 
   padding-block-start: clamp(7.5rem, 7.148rem + 1.502vw, 8.5rem);    
   color: var(--accent-color);
-  font-family: var(--font-PS2P), sans-serif;  
+  font-family: var(--font-PS2P), sans-serif, Arial, Helvetica; 
   text-align: center; 
-  -webkit-padding-before: clamp(7.5rem, 7.148rem + 1.502vw, 8.5rem);   
+  -webkit-padding-before: clamp(7.5rem, 7.148rem + 1.502vw, 8.5rem);     
 }
 
 .header__title {  
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);  
   text-align: center;
+  text-decoration: none;
+}
+
+.header__title:focus {
+  outline: none;
 }
 
 .header__subtitle {
@@ -81,8 +86,7 @@
   gap: 8px;
   margin-inline-start: 20px;
   padding-block: 24px;
-  -webkit-margin-start: 20px;
-  
+  -webkit-margin-start: 20px;  
 }
 
 .theme-menu__button {
@@ -98,13 +102,12 @@
 
 .theme-menu__button:disabled::before {
   content: '▶';
-  position: absolute;
-  margin-inline-start: -18px;
+  position: absolute;  
+  margin-left: -18px;  
   -webkit-animation: cursor 0.5s infinite ease-in-out alternate;
-  animation: cursor 0.5s infinite ease-in-out alternate;  /* Пвтор "Бесконеный",  "медленно начинается и заканчивается, а в середине ускоряется", Четный/Нечётный повтор анимации */
+  animation: cursor 0.5s infinite ease-in-out alternate;  /* Повтор "Бесконеный",  "медленно начинается и заканчивается, а в середине ускоряется", Четный/Нечётный повтор анимации */
   -webkit-animation-name: cursor;
-  animation-name: cursor; /* Имя анимациии */
-  -webkit-margin-start: -18px;
+  animation-name: cursor; /* Имя анимациии */  
 }
 
 .theme-menu__button:disabled {
@@ -233,13 +236,12 @@
 
 .watermark {  
   position: absolute;
-          padding-block-start: 22px;
+  top: 22px;
   opacity: 50%;
-  font-family: var(--font-PS2P);  
+  font-family: var(--font-PS2P), sans-serif, Arial, Helvetica; 
   font-size: 14px;
   line-height: 14px;
-  text-shadow:-1px 0 var(--watermark), 0 1px var(--watermark), 1px 0 var(--watermark), 0 -1px var(--watermark);
-  -webkit-padding-before: 22px;
+  text-shadow:-1px 0 var(--watermark), 0 1px var(--watermark), 1px 0 var(--watermark), 0 -1px var(--watermark);  
   inset-inline-end: min(13px);  
   font-variation-settings: 'wght' var(--font-weight-text);
   mix-blend-mode: hard-light;   
@@ -257,7 +259,7 @@
   display: flex;
   flex-direction: column;
   gap: 27px;  
-  padding: 25px 25px 25px 25px; 
+  padding: 25px 25px 0 25px; 
   font-variation-settings: 'wght' var(--font-weight-text);   
 }
 
@@ -358,7 +360,7 @@
 }
 
 .button__text {   
-  font-family: var(--font-PS2P);
+  font-family: var(--font-PS2P), sans-serif, Arial, Helvetica;
   font-size: var(--font-size-14px);
 }
 
@@ -373,13 +375,13 @@
 
 .dialog-window[open] {
   display: flex;  
-  align-items: center;   
+  align-items: center;
+  min-height: 191px;   
   border: 2px solid var(--contour-color);
   color: var(--accent-color);
-  font-family: var(--font-PS2P), sans-serif;
+  font-family: var(--font-PS2P), sans-serif, Arial, Helvetica;
   font-size: var(--font-size-14px);
   background-color: var(--bg-color);
-  block-size: 191px;
   inline-size: clamp(21.313rem, 21.049rem + 1.127vw, 22.063rem); 
 }
 
@@ -418,7 +420,7 @@
 }
 
 .dialog__text {
-  font-family: var(--font-PS2P), sans-serif;
+  font-family: var(--font-PS2P), sans-serif, Arial, Helvetica;
   font-size: var(--font-size-14px);
   line-height: 21px;
   text-transform: uppercase;
@@ -455,9 +457,7 @@
   block-size: 700px;  
  }
 
- .watermark {
-  padding-block-start: 25px;
-  -webkit-padding-before: 25px;
+ .watermark {  
   inset-inline-end: 25px;
  }
 

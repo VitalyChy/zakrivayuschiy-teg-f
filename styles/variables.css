@@ -15,7 +15,7 @@
   --watermark: #fff;
   --bt-color: #fff; /*  */
   --heart-contour-color: #000;
-  --heart-sparks-color: red;
+  --heart-sparks-color: #ff0000;
   --heart-body-color: #000;
 
   --background-image: repeating-linear-gradient(#d3d3d3,#d3d3d3 2px, transparent 2px, transparent 4px), 
